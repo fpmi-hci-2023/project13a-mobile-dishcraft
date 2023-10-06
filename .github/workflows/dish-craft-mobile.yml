@@ -18,8 +18,8 @@ jobs:
    steps:
      - uses: actions/checkout@v2
        with:
-         repository: ${{ secrets.KEYSTORE_GIT_REPOSITORY }}
-         token: ${{ secrets.KEYSTORE_ACCESS_TOKEN }}
+         repository: ${{ secrets.KEY_STORE_GIT_REPOSITORY }}
+         token: ${{ secrets.KEY_STORE_ACCESS_TOKEN }}
          path: app/keystore
          
      - uses: actions/setup-java@v1
