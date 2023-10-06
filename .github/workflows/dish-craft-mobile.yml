@@ -16,6 +16,7 @@ jobs:
        with: {java-version: 11}
        
      - name: Build release APK and AAB after test
+       working-directory: ./DishCraft
        run: |
          ./gradlew test
          ./gradlew assembleRelease
