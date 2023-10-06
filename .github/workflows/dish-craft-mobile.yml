@@ -20,7 +20,7 @@ jobs:
        with:
          repository: ${{ secrets.KEY_STORE_GIT_REPOSITORY }}
          token: ${{ secrets.KEY_STORE_ACCESS_TOKEN }}
-         path: app/keystore
+         path: ./DishCraft/app/keystore
          
      - uses: actions/setup-java@v1
        with: {java-version: 11}
