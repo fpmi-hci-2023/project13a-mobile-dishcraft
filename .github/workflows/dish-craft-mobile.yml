@@ -7,7 +7,7 @@ on:
     branches: [ main, development ]
 
 env:
-  KEYSTORE_PASSWORD: ${{ secrets.KEY_STORE_PASSWORD }}
+  KEY_STORE_PASSWORD: ${{ secrets.KEY_STORE_PASSWORD }}
   RELEASE_SIGN_KEY_ALIAS: ${{ secrets.RELEASE_SIGN_KEY_ALIAS }}
   RELEASE_SIGN_KEY_PASSWORD: ${{ secrets.RELEASE_SIGN_KEY_PASSWORD }}
 
