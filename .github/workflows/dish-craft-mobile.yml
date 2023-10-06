@@ -17,13 +17,15 @@ jobs:
    runs-on: ubuntu-latest
    steps:
      - uses: actions/checkout@v2
+     - uses: actions/setup-java@v1
+       with: {java-version: 11}
+
+     - name: Checkout keystore repo
+       uses: actions/checkout@v2
        with:
          repository: ${{ secrets.KEY_STORE_GIT_REPOSITORY }}
          token: ${{ secrets.KEY_STORE_ACCESS_TOKEN }}
          path: ./DishCraft/app/keystore
-         
-     - uses: actions/setup-java@v1
-       with: {java-version: 11}
        
      - name: Change wrapper permissions
        working-directory: ./DishCraft
