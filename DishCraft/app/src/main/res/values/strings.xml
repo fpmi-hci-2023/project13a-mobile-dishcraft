@@ -1,3 +1,67 @@
 <resources>
-    <string name="app_name">DishCraft</string>
+    <string name="app_name">Мастерская Блюд</string>
+    <string name="search_hint">Название блюда</string>
+    <string name="recipes">Рецепты</string>
+    <string name="filters">Фильтры</string>
+    <string name="cooking_time">Время приготовления</string>
+    <string name="up_to_15_minutes">До 15 минут</string>
+    <string name="up_to_30_minutes">До 30 минут</string>
+    <string name="up_to_45_minutes">До 45 минут</string>
+    <string name="up_to_hour">До часа</string>
+    <string name="more_than_hour">Более часа</string>
+    <string name="caloric_content_per_100_g">Калорийность на 100г</string>
+    <string name="up_to_200_ccal">До 200 кКал</string>
+    <string name="from_200_to_400_ccal">200 - 400 кКал</string>
+    <string name="from_400_to_600_ccal">400 - 600 кКал</string>
+    <string name="from_600_to_800_ccal">600 - 800 кКал</string>
+    <string name="more_than_800">Более 800 кКал</string>
+    <string name="add_product">Добавить продукт</string>
+    <string name="enter_product_title">Введите название продукта</string>
+    <string name="user_name">Имя пользователя</string>
+    <string name="password">Пароль</string>
+    <string name="confirm_password">Подтвердите пароль</string>
+    <string name="login">Войти</string>
+    <string name="sign_up">Зарегистрироваться</string>
+    <string name="search">Найти</string>
+    <string name="clear">Сбросить</string>
+    <string name="to_favourite">В Избранное</string>
+    <string name="proteins">Белки</string>
+    <string name="fats">Жиры</string>
+    <string name="carbohydrates">Углеводы</string>
+    <string name="calories">Калории</string>
+    <string name="ccal">кКал</string>
+    <string name="gram">грамм</string>
+    <string name="ingredients">Ингредиенты</string>
+    <string name="portions">Порции</string>
+    <string name="step_by_step_photo_recipe">Пошаговый фоторецепт</string>
+    <string name="step">Шаг</string>
+    <string name="comments">Комментарии</string>
+    <string name="enter_comment">Введите комментарий</string>
+    <string name="did_you_like_recipe">Понравился рецепт?</string>
+    <string name="my_recipes">Мои рецепты</string>
+    <string name="favourites">Избранное</string>
+    <string name="quit">Выйти</string>
+    <string name="create_recipe">Создать рецепт</string>
+    <string name="new_str">Новое</string>
+    <string name="popular">Популярное</string>
+    <string name="create_new_recipe">Создание нового рецепта</string>
+    <string name="fill_in_main_info">Заполните основную информацию о рецепте</string>
+    <string name="dish_name">Название блюда</string>
+    <string name="description">Описание</string>
+    <string name="time_in_kitchen">Время на кухне</string>
+    <string name="read_in">Будет готово через</string>
+    <string name="load_main_photo">Загрузите главное фото</string>
+    <string name="add_ingredients">Добавьте ингредиенты</string>
+    <string name="how_many_portions">На сколько порций рассчитан Ваш рецепт?</string>
+    <string name="tablespoon">ст.л.</string>
+    <string name="ones">шт.</string>
+    <string name="glass">стакан</string>
+    <string name="describe_steps">Опишите по шагам создание блюда</string>
+    <string name="enter_description">Введите описание</string>
+
+    <string-array name="measure_units">
+        <item>ст.л.</item>
+        <item>шт.</item>
+        <item>стакан</item>
+    </string-array>
 </resources>

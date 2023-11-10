@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="brown">#D79D5A</color>
+    <color name="beige">#F4C58E</color>
+    <color name="dark_gray">#454342</color>
+    <color name="green">#A7BC40</color>
+
+    <color name="brown_transparent">#C0D79D5A</color>
+    <color name="transparent">#00000000</color>
+    <color name="gray">#F0F0F0</color>
+
     <color name="purple_200">#FFBB86FC</color>
     <color name="purple_500">#FF6200EE</color>
     <color name="purple_700">#FF3700B3</color>

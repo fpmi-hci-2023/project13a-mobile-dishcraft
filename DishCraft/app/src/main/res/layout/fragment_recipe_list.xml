@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/recipesTV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/content_gap_vertical"
+        android:fontFamily="@font/fira_sans_extra_condensed_medium"
+        android:text="@string/recipes"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="18sp" />
+
+    <androidx.constraintlayout.helper.widget.Carousel
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+
+    <com.google.android.material.button.MaterialButtonToggleGroup
+        android:id="@+id/popularNewSwitch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/recipesTV"
+        android:layout_centerHorizontal="true"
+        app:strokeColor="@color/green"
+        app:checkedButton="@id/newBtn"
+        app:singleSelection="true"
+        app:selectionRequired="true"
+        >
+
+        <com.google.android.material.button.MaterialButton
+            style="@style/ToggleButton"
+            android:id="@+id/newBtn"
+            android:layout_width="@dimen/switch_btn_width"
+            android:layout_height="wrap_content"
+            android:text="@string/new_str"
+            app:strokeColor="@color/green"
+            app:strokeWidth="2dp" />
+
+        <com.google.android.material.button.MaterialButton
+            style="@style/ToggleButton"
+            android:id="@+id/popularBtn"
+            android:layout_width="@dimen/switch_btn_width"
+            android:layout_height="wrap_content"
+            android:text="@string/popular"
+            app:strokeColor="@color/green"
+            app:strokeWidth="2dp"
+            />
+
+    </com.google.android.material.button.MaterialButtonToggleGroup>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recipeListRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/popularNewSwitch"
+        android:layout_marginHorizontal="@dimen/content_margin_horizontal"
+        android:layout_marginTop="@dimen/content_gap_vertical"
+        tools:listitem="@layout/item_recipe"
+        android:nestedScrollingEnabled="false"/>
+</RelativeLayout>

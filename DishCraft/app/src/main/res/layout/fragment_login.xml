@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/dark_gray"
+    android:paddingHorizontal="15dp">
+
+    <TextView
+        android:id="@+id/appTitleTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="@font/fira_sans_extra_condensed_bold"
+        android:text="@string/app_name"
+        android:textAlignment="center"
+        android:textColor="@color/beige"
+        android:textSize="25sp" />
+
+    <TextView
+        android:id="@+id/loginUserNameTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/appTitleTV"
+        android:layout_marginTop="35dp"
+        android:fontFamily="@font/fira_sans_extra_condensed_regular"
+        android:text="@string/user_name"
+        android:textColor="@color/white"
+        android:textSize="18sp" />
+
+    <EditText
+        android:id="@+id/loginUserNameEditText"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/login_input_height"
+        android:layout_below="@id/loginUserNameTV"
+        android:background="@drawable/login_input_background" />
+
+    <TextView
+        android:id="@+id/loginPasswordTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/loginUserNameEditText"
+        android:layout_marginTop="15dp"
+        android:fontFamily="@font/fira_sans_extra_condensed_regular"
+        android:text="@string/password"
+        android:textColor="@color/white"
+        android:textSize="18sp" />
+
+    <EditText
+        android:id="@+id/loginPasswordEditText"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/login_input_height"
+        android:layout_below="@id/loginPasswordTV"
+        android:background="@drawable/login_input_background" />
+
+    <Button
+        android:id="@+id/loginLoginBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/loginPasswordEditText"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/active_login_button_bg"
+        android:fontFamily="@font/fira_sans_extra_condensed_regular"
+        android:insetTop="0dp"
+        android:insetBottom="0dp"
+        android:minHeight="0dp"
+        android:paddingHorizontal="50dp"
+        android:text="@string/login"
+        android:textSize="18sp"
+        />
+
+    <Button
+        android:id="@+id/loginRegistrationBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/loginLoginBtn"
+        android:layout_centerHorizontal="true"
+        android:backgroundTint="@color/dark_gray"
+        android:text="@string/sign_up"
+        android:fontFamily="@font/fira_sans_extra_condensed_regular"
+        android:textSize="18sp"
+        android:paddingHorizontal="0dp"/>
+
+
+</RelativeLayout>

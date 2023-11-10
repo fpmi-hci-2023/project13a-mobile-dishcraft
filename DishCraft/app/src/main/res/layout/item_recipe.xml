@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:background="@drawable/block_border">
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:src="@drawable/image_example"
+        android:adjustViewBounds="true"
+        android:layout_weight="0.45"/>
+
+    <RelativeLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="0.55"
+
+        android:paddingStart="@dimen/margin_10"
+        android:overScrollMode="never">
+
+        <TextView
+            android:id="@+id/recipeTitleTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/fira_sans_extra_condensed_regular"
+            android:text="Мусс с семенами чиа"
+            android:textSize="16dp" />
+
+        <LinearLayout
+            android:id="@+id/timeBlock"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/recipeTitleTV"
+            android:layout_marginTop="@dimen/recipe_item_description_margin_vertical">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:src="@drawable/icon_cooking_time" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/recipe_item_icon_margin_horizontal"
+                android:fontFamily="@font/fira_sans_extra_condensed_light"
+                android:text="6 ч 15 мин"
+                android:textSize="@dimen/recipe_item_description_text_size" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/caloriesBlock"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/timeBlock"
+            android:layout_marginTop="@dimen/recipe_item_description_margin_vertical">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:src="@drawable/icon_calories" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/recipe_item_icon_margin_horizontal"
+                android:fontFamily="@font/fira_sans_extra_condensed_light"
+                android:text="120,43 кКал"
+                android:textSize="@dimen/recipe_item_description_text_size" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/complexityBlock"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/caloriesBlock"
+            android:layout_marginTop="@dimen/recipe_item_description_margin_vertical">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:src="@drawable/icon_complexity" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/recipe_item_icon_margin_horizontal"
+                android:fontFamily="@font/fira_sans_extra_condensed_light"
+                android:text="Просто"
+                android:textSize="@dimen/recipe_item_description_text_size" />
+        </LinearLayout>
+    </RelativeLayout>
+</LinearLayout>

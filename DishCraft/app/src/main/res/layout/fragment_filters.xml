@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingHorizontal="10dp"
+        android:paddingTop="10dp">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/filtersTitleBlock">
+        <TextView
+            android:id="@+id/filtersTV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/fira_sans_extra_condensed_medium"
+            android:text="@string/filters"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:layout_centerVertical="true"/>
+
+        <!--<ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:backgroundTint="@color/filter_chip_bg"
+            android:src="@drawable/icon_close" />-->
+
+        <Button
+            android:id="@+id/closeBtn"
+            style="?attr/materialIconButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:icon="@drawable/icon_close"
+            app:iconTint="@color/black"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/cookingTimeTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/filtersTitleBlock"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="15dp"
+            android:fontFamily="@font/fira_sans_extra_condensed_regular"
+            android:text="@string/cooking_time"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+
+
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/cookingTimeChipGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/cookingTimeTV"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp"
+            app:chipSpacingHorizontal="@dimen/filter_chip_spacing_horizontal"
+            app:chipSpacingVertical="@dimen/filter_chip_spacing_vertical">
+
+            <com.google.android.material.chip.Chip
+                style="@style/ChipSuggestion"
+                android:layout_width="@dimen/filter_chip_width"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_gravity="center"
+                android:text="@string/up_to_15_minutes" />
+
+            <com.google.android.material.chip.Chip
+                style="@style/ChipSuggestion"
+                android:layout_width="@dimen/filter_chip_width"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_gravity="center"
+                android:text="@string/up_to_30_minutes" />
+
+            <com.google.android.material.chip.Chip
+                style="@style/ChipSuggestion"
+                android:layout_width="@dimen/filter_chip_width"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_gravity="center"
+                android:text="@string/up_to_45_minutes" />
+
+            <com.google.android.material.chip.Chip
+                style="@style/ChipSuggestion"
+                android:layout_width="@dimen/filter_chip_width"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_gravity="center"
+                android:text="@string/up_to_hour" />
+
+            <com.google.android.material.chip.Chip
+                style="@style/ChipSuggestion"
+                android:layout_width="@dimen/filter_chip_width"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_gravity="center"
+                android:text="@string/more_than_hour" />
+
+        </com.google.android.material.chip.ChipGroup>
+
+        <TextView
+            android:id="@+id/caloricContentTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/cookingTimeChipGroup"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="15dp"
+            android:fontFamily="@font/fira_sans_extra_condensed_regular"
+            android:text="@string/caloric_content_per_100_g"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+
+
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/caloricContentChipGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/caloricContentTV"
+            android:layout_centerHorizontal="true"
+            app:chipSpacingHorizontal="@dimen/filter_chip_spacing_horizontal"
+            app:chipSpacingVertical="@dimen/filter_chip_spacing_vertical"
+            android:layout_marginTop="5dp">
+
+            <com.google.android.material.chip.Chip
+                style="@style/ChipSuggestion"
+                android:layout_width="@dimen/filter_chip_width"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_gravity="center"
+                android:text="@string/up_to_200_ccal" />
+
+            <com.google.android.material.chip.Chip
+                style="@style/ChipSuggestion"
+                android:layout_width="@dimen/filter_chip_width"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_gravity="center"
+                android:text="@string/from_200_to_400_ccal" />
+
+            <com.google.android.material.chip.Chip
+                style="@style/ChipSuggestion"
+                android:layout_width="@dimen/filter_chip_width"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_gravity="center"
+                android:text="@string/from_400_to_600_ccal" />
+
+            <com.google.android.material.chip.Chip
+                style="@style/ChipSuggestion"
+                android:layout_width="@dimen/filter_chip_width"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_gravity="center"
+                android:text="@string/from_600_to_800_ccal" />
+
+            <com.google.android.material.chip.Chip
+                style="@style/ChipSuggestion"
+                android:layout_width="@dimen/filter_chip_width"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_gravity="center"
+                android:text="@string/more_than_800" />
+
+        </com.google.android.material.chip.ChipGroup>
+
+        <TextView
+            android:id="@+id/addProductTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/caloricContentChipGroup"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="15dp"
+            android:fontFamily="@font/fira_sans_extra_condensed_regular"
+            android:text="@string/add_product"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/productsRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/addProductTV"
+            android:layout_marginTop="5dp"
+            tools:itemCount="3"
+            tools:listitem="@layout/item_product_search_result" />
+
+        <AutoCompleteTextView
+            android:id="@+id/productsSearchTV"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_below="@id/productsRecyclerView"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/product_search_bg"
+            android:completionThreshold="1"
+            android:fontFamily="@font/fira_sans_extra_condensed_light"
+            android:hint="@string/enter_product_title"
+            android:paddingStart="15dp"
+            android:popupBackground="@drawable/products_search_hints_bg"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/searchBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/productsSearchTV"
+            android:layout_alignParentRight="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/active_login_button_bg"
+            android:fontFamily="@font/fira_sans_extra_condensed_regular"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:minHeight="0dp"
+            android:text="@string/search"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/clearBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/productsSearchTV"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="10dp"
+            android:layout_toLeftOf="@id/searchBtn"
+            android:background="@drawable/login_input_background"
+            android:fontFamily="@font/fira_sans_extra_condensed_regular"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:minHeight="0dp"
+            android:text="@string/clear"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:backgroundTint="@null" />
+
+    </RelativeLayout>
+</ScrollView>
