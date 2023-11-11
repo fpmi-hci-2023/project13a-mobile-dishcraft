@@ -36,4 +36,5 @@ class RecipeListFragment : Fragment() {
             RecipesAdapter(recipeList)
         binding.recipeListRecyclerView.adapter = recipesAdapter
     }
+
 }

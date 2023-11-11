@@ -5,10 +5,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.NavHostFragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.shinkevich.dishcraft.R
 import com.shinkevich.dishcraft.databinding.FragmentCreateRecipeBinding
 import com.shinkevich.dishcraft.view.adapters.IngredientsAddAdapter
 import com.shinkevich.dishcraft.view.adapters.StepsAddAdapter
+import com.shinkevich.dishcraft.view.adapters.listFragments
 
 class CreateRecipeFragment : Fragment() {
     private lateinit var binding: FragmentCreateRecipeBinding

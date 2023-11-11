@@ -6,7 +6,6 @@ import android.view.ViewGroup
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.shinkevich.dishcraft.R
-import com.shinkevich.dishcraft.view.fragments.RecipeListFragmentDirections
 
 class RecipesAdapter (var recipes : List<String>) : RecyclerView.Adapter<RecipesAdapter.RecipesViewHolder>() {
 
@@ -18,8 +17,9 @@ class RecipesAdapter (var recipes : List<String>) : RecyclerView.Adapter<Recipes
 
     override fun onBindViewHolder(holder: RecipesViewHolder, position: Int) {
         holder.itemView.setOnClickListener{
-            val actionToRecipeDetails = RecipeListFragmentDirections.actionRecipeListFragmentToRecipeDetailsFragment(1)
-            holder.itemView.findNavController().navigate(actionToRecipeDetails)
+            //val actionToRecipeDetails = RecipeListFragmentDirections.actionRecipeListFragmentToRecipeDetailsFragment(1)
+            //holder.itemView.findNavController().navigate(actionToRecipeDetails)
+            holder.itemView.findNavController().navigate(R.id.recipeDetailsFragment)
         }
     }
 

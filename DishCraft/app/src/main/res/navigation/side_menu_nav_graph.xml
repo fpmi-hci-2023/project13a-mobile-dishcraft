@@ -12,6 +12,15 @@
             android:id="@+id/action_recipeListFragment_to_recipeDetailsFragment"
             app:destination="@id/recipeDetailsFragment" />
     </fragment>
+
+    <fragment android:id="@+id/myRecipesFragment"
+        tools:layout="@layout/fragment_my_recipes"
+        android:name="com.shinkevich.dishcraft.view.fragments.MyRecipesFragment" />
+
+    <fragment android:id="@+id/favouriteRecipesFragment"
+        tools:layout="@layout/fragment_favourite_recipes"
+        android:name="com.shinkevich.dishcraft.view.fragments.FavouriteRecipesFragment"/>
+
     <fragment android:id="@+id/recipeDetailsFragment"
         tools:layout="@layout/fragment_recipe_details"
         android:name="com.shinkevich.dishcraft.view.fragments.RecipeDetailsFragment">
@@ -19,13 +28,7 @@
             android:name="recipeId"
             app:argType="integer" />
     </fragment>
-    <fragment android:id="@+id/myRecipesFragment"
-        tools:layout="@layout/fragment_my_recipes"
-        android:name="com.shinkevich.dishcraft.view.fragments.MyRecipesFragment"/>
 
-    <fragment android:id="@+id/favouriteRecipesFragment"
-        tools:layout="@layout/fragment_favourite_recipes"
-        android:name="com.shinkevich.dishcraft.view.fragments.FavouriteRecipesFragment"/>
 
     <fragment android:id="@+id/createRecipeFragment"
         tools:layout="@layout/fragment_create_recipe"
@@ -33,5 +36,16 @@
     <action
         android:id="@+id/action_global_createRecipeFragment"
         app:destination="@id/createRecipeFragment"
-        app:launchSingleTop="true" />
+        app:launchSingleTop="true"
+        app:popUpTo="@id/recipeListFragment"/>
+
+    <action android:id="@+id/action_global_myRecipesFragment"
+        app:destination="@id/myRecipesFragment"
+        app:launchSingleTop="true"
+        app:popUpTo="@id/recipeListFragment" />
+
+    <action android:id="@+id/action_global_favouriteRecipesFragment"
+        app:destination="@id/favouriteRecipesFragment"
+        app:launchSingleTop="true"
+        app:popUpTo="@id/recipeListFragment"/>
 </navigation>
