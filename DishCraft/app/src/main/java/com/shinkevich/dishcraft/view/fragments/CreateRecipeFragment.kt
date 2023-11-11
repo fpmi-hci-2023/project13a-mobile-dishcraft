@@ -11,7 +11,6 @@ import com.shinkevich.dishcraft.R
 import com.shinkevich.dishcraft.databinding.FragmentCreateRecipeBinding
 import com.shinkevich.dishcraft.view.adapters.IngredientsAddAdapter
 import com.shinkevich.dishcraft.view.adapters.StepsAddAdapter
-import com.shinkevich.dishcraft.view.adapters.listFragments
 
 class CreateRecipeFragment : Fragment() {
     private lateinit var binding: FragmentCreateRecipeBinding

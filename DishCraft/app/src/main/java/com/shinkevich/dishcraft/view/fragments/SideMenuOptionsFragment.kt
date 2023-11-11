@@ -9,18 +9,14 @@ import android.view.Menu
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.GravityCompat
-import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
-import androidx.navigation.ui.NavigationUI
-import androidx.navigation.ui.navigateUp
 import com.google.android.material.navigation.NavigationView
 import com.shinkevich.dishcraft.R
 import com.shinkevich.dishcraft.databinding.DrawerHeaderBinding
 import com.shinkevich.dishcraft.databinding.FragmentSideMenuOptionsBinding
-import com.shinkevich.dishcraft.view.adapters.listFragments
 
 class SideMenuOptionsFragment : Fragment() {
     private lateinit var binding: FragmentSideMenuOptionsBinding
