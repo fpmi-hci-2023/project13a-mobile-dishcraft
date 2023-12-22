@@ -36,7 +36,7 @@
                         android:queryHint="@string/search_hint"
                         android:searchIcon="@drawable/icon_search"
                         android:theme="@style/SearchViewStyle"
-                        android:textSize="18sp"/>
+                        android:textSize="20sp"/>
 
                     <ImageButton
                         android:id="@+id/filterImgBtn"
