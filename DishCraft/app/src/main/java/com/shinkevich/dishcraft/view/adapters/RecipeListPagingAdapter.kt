@@ -32,7 +32,7 @@ class RecipeListPagingAdapter(diffCallback: DiffUtil.ItemCallback<RecipePreview>
                 itemRecipeBinding.recipeTitleTV.text = recipe.recipeName
                 itemRecipeBinding.readyTimeTV.text =
                     Utils.showTime(recipe.readyTimeMinutes, context)
-                itemRecipeBinding.readyTimeTV.text =
+                itemRecipeBinding.cookingTimeTV.text =
                     Utils.showTime(recipe.cookingTimeMinutes, context)
                 itemRecipeBinding.complexityTV.text = recipe.complexity
 

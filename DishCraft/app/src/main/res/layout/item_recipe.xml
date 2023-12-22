@@ -12,7 +12,7 @@
         android:layout_height="match_parent"
         android:layout_weight="0.45"
         android:adjustViewBounds="true"
-        android:src="@drawable/image_example" />
+        android:src="@drawable/dish_photo_placeholder" />
 
     <RelativeLayout
         android:layout_width="0dp"

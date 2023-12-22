@@ -29,7 +29,8 @@
             android:layout_width="@dimen/user_photo_size"
             android:layout_height="@dimen/user_photo_size"
             android:scaleType="fitXY"
-            android:src="@drawable/image_example"
+            android:src="@drawable/user_placeholder"
+            android:tint="@color/white"
             app:shapeAppearanceOverlay="@style/RoundShape" />
 
         <TextView

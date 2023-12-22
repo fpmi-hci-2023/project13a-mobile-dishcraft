@@ -28,7 +28,7 @@
             android:layout_height="match_parent"
             android:background="@color/white"
             android:paddingHorizontal="15dp"
-            android:visibility="visible">
+            android:visibility="gone">
 
 
             <ImageView
@@ -37,7 +37,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
                 android:adjustViewBounds="true"
-                android:src="@drawable/image_example" />
+                android:src="@drawable/dish_photo_placeholder" />
 
             <TextView
                 android:id="@+id/recipeTitleTV"
@@ -446,7 +446,7 @@
                 android:fontFamily="@font/fira_sans_extra_condensed_regular"
                 android:text="@string/ingredients"
                 android:textColor="@color/black"
-                android:textSize="18sp" />
+                android:textSize="22sp" />
 
             <!--
             <LinearLayout
@@ -530,7 +530,7 @@
                 android:fontFamily="@font/fira_sans_extra_condensed_regular"
                 android:text="@string/step_by_step_photo_recipe"
                 android:textColor="@color/black"
-                android:textSize="18sp" />
+                android:textSize="22sp" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/stepsRecyclerView"
@@ -617,7 +617,7 @@
                 android:fontFamily="@font/fira_sans_extra_condensed_regular"
                 android:text="@string/comments"
                 android:textColor="@color/black"
-                android:textSize="18sp" />
+                android:textSize="22sp" />
 
             <LinearLayout
                 android:id="@+id/enterCommentBlock"
@@ -632,7 +632,7 @@
                     android:layout_width="@dimen/user_photo_size"
                     android:layout_height="@dimen/user_photo_size"
                     android:scaleType="fitXY"
-                    android:src="@drawable/image_example"
+                    android:src="@drawable/user_placeholder"
                     app:shapeAppearanceOverlay="@style/RoundShape" />
 
                 <EditText
@@ -643,7 +643,7 @@
                     android:hint="@string/enter_comment"
                     android:textColor="@color/black"
                     android:textColorHint="@color/black"
-                    android:textSize="14sp" />
+                    android:textSize="18sp" />
             </LinearLayout>
 
             <androidx.recyclerview.widget.RecyclerView
