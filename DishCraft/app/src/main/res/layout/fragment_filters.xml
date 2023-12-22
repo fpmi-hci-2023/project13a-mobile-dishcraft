@@ -217,22 +217,18 @@
 
         <Button
             android:id="@+id/searchBtn"
+            style="@style/FilledButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/productsSearchTV"
             android:layout_alignParentRight="true"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="15dp"
-            android:background="@drawable/active_login_button_bg"
-            android:fontFamily="@font/fira_sans_extra_condensed_regular"
-            android:insetTop="0dp"
-            android:insetBottom="0dp"
-            android:minHeight="0dp"
-            android:text="@string/search"
-            android:textSize="16sp" />
+            android:text="@string/search" />
 
         <Button
             android:id="@+id/clearBtn"
+            style="@style/OutlinedButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/productsSearchTV"
@@ -240,15 +236,7 @@
             android:layout_marginTop="15dp"
             android:layout_marginRight="10dp"
             android:layout_toLeftOf="@id/searchBtn"
-            android:background="@drawable/login_input_background"
-            android:fontFamily="@font/fira_sans_extra_condensed_regular"
-            android:insetTop="0dp"
-            android:insetBottom="0dp"
-            android:minHeight="0dp"
-            android:text="@string/clear"
-            android:textColor="@color/black"
-            android:textSize="16sp"
-            app:backgroundTint="@null" />
+            android:text="@string/clear" />
 
     </RelativeLayout>
 </ScrollView>

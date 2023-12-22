@@ -1,645 +1,661 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/white"
-    android:paddingHorizontal="15dp">
+    android:layout_height="wrap_content"
+    android:background="@color/white">
 
-    <ImageView
-        android:id="@+id/recipeImageView"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:adjustViewBounds="true"
-        android:src="@drawable/image_example" />
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/white">
 
-    <TextView
-        android:id="@+id/recipeTitleTV"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/recipeImageView"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="5dp"
-        android:fontFamily="@font/fira_sans_extra_condensed_regular"
-        android:text="Мусс с семенами чиа"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textSize="18sp" />
-
-    <RelativeLayout
-        android:id="@+id/recipeInfoBlock"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/recipeTitleTV"
-        android:layout_marginTop="10dp">
+        <ProgressBar
+            android:id="@+id/loadingProgressBar"
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:progressDrawable="@drawable/circular_progress_bar"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp"
+            android:background="@color/white"/>
 
         <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp">
-
-            <LinearLayout
-                android:id="@+id/readyTimeBlock"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:src="@drawable/icon_ready_time" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/recipe_item_icon_margin_horizontal"
-                    android:fontFamily="@font/fira_sans_extra_condensed_light"
-                    android:text="6 ч 15 мин"
-                    android:textSize="@dimen/recipe_item_description_text_size" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/cookingTimeBlock"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/readyTimeBlock"
-                android:layout_marginTop="@dimen/recipe_item_description_margin_vertical">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:src="@drawable/icon_cooking_time" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/recipe_item_icon_margin_horizontal"
-                    android:fontFamily="@font/fira_sans_extra_condensed_light"
-                    android:text="120,43 кКал"
-                    android:textSize="@dimen/recipe_item_description_text_size" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/complexityBlock"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/cookingTimeBlock"
-                android:layout_marginTop="@dimen/recipe_item_description_margin_vertical">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:src="@drawable/icon_complexity" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/recipe_item_icon_margin_horizontal"
-                    android:fontFamily="@font/fira_sans_extra_condensed_light"
-                    android:text="Просто"
-                    android:textSize="@dimen/recipe_item_description_text_size" />
-            </LinearLayout>
-        </RelativeLayout>
-        -
-
-        <Button
-            android:id="@+id/toFavouriteBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:background="@drawable/favourite_btn_bg"
-            android:fontFamily="@font/fira_sans_extra_condensed_regular"
-            android:insetTop="0dp"
-            android:insetBottom="0dp"
-            android:minHeight="0dp"
-            android:text="@string/to_favourite"
-            android:textColor="@color/black"
-            android:textSize="16dp"
-            app:backgroundTint="@null" />
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/toFavouriteBtn"
-            android:layout_alignParentRight="true"
-            android:layout_marginTop="10dp"
-            android:baselineAligned="true"
-            android:orientation="horizontal">
-
-            <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@color/white"
-                android:src="@drawable/icon_star_no_padding" />
-
-            <TextView
-                android:id="@+id/avgMarkTV"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="4dp"
-                android:fontFamily="@font/fira_sans_extra_condensed_bold"
-                android:text="5.0"
-                android:textSize="16sp" />
-
-            <TextView
-                android:id="@+id/marksNumTV"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="2dp"
-                android:fontFamily="@font/fira_sans_extra_condensed_light"
-                android:gravity="center"
-                android:text="20"
-                android:textSize="16sp" />
-
-            <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="6dp"
-                android:background="@color/white"
-                android:src="@drawable/icon_comment" />
-
-            <TextView
-                android:id="@+id/commentsNumTV"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="4dp"
-                android:fontFamily="@font/fira_sans_extra_condensed_light"
-                android:gravity="center"
-                android:text="(20)"
-                android:textSize="16sp" />
-        </LinearLayout>
-    </RelativeLayout>
-
-    <TextView
-        android:id="@+id/recipeDescriptionTV"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/recipeInfoBlock"
-        android:layout_marginTop="14dp"
-        android:fontFamily="@font/fira_sans_extra_condensed_light"
-        android:gravity=""
-        android:justificationMode="inter_word"
-        android:text="Мусс с семенами чиа — легкий и полезный десерт со свежими ягодами. Семена чиа нормализуют вес, помогают при диабете и болезнях сердца. В них много витаминов, минералов и других полезных веществ. Ягоды могут быть любые, например, малина, клубника или голубика."
-        android:textColor="@color/black"
-        android:textSize="16sp" />
-
-    <LinearLayout
-        android:id="@+id/recipeAuthorBlock"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/recipeDescriptionTV"
-        android:layout_marginTop="5dp"
-        android:gravity="center">
-
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/recipeAuthorPhotoShapeableImageView"
-            android:layout_width="@dimen/user_photo_size"
-            android:layout_height="@dimen/user_photo_size"
-            android:scaleType="fitXY"
-            android:src="@drawable/image_example"
-            app:shapeAppearanceOverlay="@style/RoundShape" />
-
-        <TextView
-            android:id="@+id/recipeAuthorNameTV"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:fontFamily="@font/fira_sans_extra_condensed_medium"
-            android:text="Галина Белая"
-            android:textColor="@color/black"
-            android:textSize="18sp" />
-    </LinearLayout>
+            android:id="@+id/screenContent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:paddingHorizontal="15dp"
+            android:visibility="visible">
 
 
-    <GridLayout
-        android:id="@+id/nutritionalValueBlock"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/recipeAuthorBlock"
-        android:layout_marginHorizontal="25dp"
-        android:layout_marginTop="15dp"
-        android:columnCount="3"
-        android:useDefaultMargins="true">
-
-        <LinearLayout
-            android:layout_columnWeight="1"
-            android:background="@drawable/nutritional_value_border_bg"
-            android:gravity="center"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/caloriesTV"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/fira_sans_extra_condensed_regular"
-                android:text="@string/calories"
-                android:textColor="@color/white"
-                android:textSize="@dimen/nutritional_value_title_text_size" />
-
-            <LinearLayout
+            <ImageView
+                android:id="@+id/recipeImageView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="@dimen/nutritional_value_margin_horizontal"
-                android:layout_marginBottom="@dimen/nutritional_value_margin_bottom"
-                android:background="@drawable/nutritional_value_bg"
-                android:gravity="center"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/caloriesValueTV"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/fira_sans_extra_condensed_medium"
-                    android:text="120.43"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/nutritional_value_value_text_size" />
-
-                <TextView
-                    android:id="@+id/caloriesUnitTV"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/fira_sans_extra_condensed_light"
-                    android:text="@string/ccal"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/nutritional_value_measure_unit_text_size" />
-
-            </LinearLayout>
-
-        </LinearLayout>
-
-        <Space android:layout_width="@dimen/nutritional_value_horizontal_gap" />
-
-        <LinearLayout
-            android:layout_columnWeight="1"
-            android:background="@drawable/nutritional_value_border_bg"
-            android:gravity="center"
-            android:orientation="vertical">
+                android:layout_marginTop="15dp"
+                android:adjustViewBounds="true"
+                android:src="@drawable/image_example" />
 
             <TextView
-                android:id="@+id/proteinsTV"
+                android:id="@+id/recipeTitleTV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_below="@id/recipeImageView"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dp"
                 android:fontFamily="@font/fira_sans_extra_condensed_regular"
-                android:text="@string/proteins"
-                android:textColor="@color/white"
-                android:textSize="@dimen/nutritional_value_title_text_size" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="@dimen/nutritional_value_margin_horizontal"
-                android:layout_marginBottom="@dimen/nutritional_value_margin_bottom"
-                android:background="@drawable/nutritional_value_bg"
-                android:gravity="center"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/proteinsValueTV"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/fira_sans_extra_condensed_medium"
-                    android:text="3.73"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/nutritional_value_value_text_size" />
-
-                <TextView
-                    android:id="@+id/proteinsUnitTV"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/fira_sans_extra_condensed_light"
-                    android:text="@string/gram"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/nutritional_value_measure_unit_text_size" />
-
-            </LinearLayout>
-
-        </LinearLayout>
-
-        <Space
-            android:layout_height="@dimen/nutritional_value_vertical_gap"
-            android:layout_columnSpan="3" />
-
-        <LinearLayout
-            android:layout_columnWeight="1"
-            android:background="@drawable/nutritional_value_border_bg"
-            android:gravity="center"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/fatsTV"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/fira_sans_extra_condensed_regular"
-                android:text="@string/fats"
-                android:textColor="@color/white"
-                android:textSize="@dimen/nutritional_value_title_text_size" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="@dimen/nutritional_value_margin_horizontal"
-                android:layout_marginBottom="@dimen/nutritional_value_margin_bottom"
-                android:background="@drawable/nutritional_value_bg"
-                android:gravity="center"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/fatsValueTV"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/fira_sans_extra_condensed_medium"
-                    android:text="120.43"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/nutritional_value_value_text_size" />
-
-                <TextView
-                    android:id="@+id/fatsUnitTV"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/fira_sans_extra_condensed_light"
-                    android:text="@string/gram"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/nutritional_value_measure_unit_text_size" />
-
-            </LinearLayout>
-
-        </LinearLayout>
-
-        <Space android:layout_width="@dimen/nutritional_value_horizontal_gap" />
-
-        <LinearLayout
-            android:layout_columnWeight="1"
-            android:background="@drawable/nutritional_value_border_bg"
-            android:gravity="center"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/carbohydratesTV"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/fira_sans_extra_condensed_regular"
-                android:text="@string/carbohydrates"
-                android:textColor="@color/white"
-                android:textSize="@dimen/nutritional_value_title_text_size" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="@dimen/nutritional_value_margin_horizontal"
-                android:layout_marginBottom="@dimen/nutritional_value_margin_bottom"
-                android:background="@drawable/nutritional_value_bg"
-                android:gravity="center"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/carbohydratesValueTV"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/fira_sans_extra_condensed_medium"
-                    android:text="120.43"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/nutritional_value_value_text_size" />
-
-                <TextView
-                    android:id="@+id/carbohydratesUnitTV"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/fira_sans_extra_condensed_light"
-                    android:text="@string/gram"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/nutritional_value_measure_unit_text_size" />
-
-            </LinearLayout>
-
-        </LinearLayout>
-
-
-    </GridLayout>
-
-    <TextView
-        android:id="@+id/recipeIngredientsTV"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/nutritionalValueBlock"
-        android:layout_marginTop="15dp"
-        android:fontFamily="@font/fira_sans_extra_condensed_regular"
-        android:text="@string/ingredients"
-        android:textColor="@color/black"
-        android:textSize="18sp" />
-
-    <LinearLayout
-        android:id="@+id/recipePortionsBlock"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/recipeIngredientsTV"
-        android:layout_marginTop="10dp"
-        android:gravity="center">
-
-        <TextView
-            android:id="@+id/portionsIngredientsTV"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/fira_sans_extra_condensed_regular"
-            android:text="@string/portions"
-            android:textColor="@color/black"
-            android:textSize="18sp" />
-
-        <com.google.android.material.button.MaterialButton
-            style="@style/Widget.Design.FloatingActionButton"
-            android:layout_width="@dimen/portion_btn_size"
-            android:layout_height="@dimen/portion_btn_size"
-            android:layout_marginLeft="36dp"
-            android:background="@drawable/circle_with_brown_stroke"
-            android:insetLeft="0dp"
-            android:insetTop="0dp"
-            android:insetRight="0dp"
-            android:insetBottom="0dp"
-            android:padding="0dp"
-            android:text="-"
-            android:textColor="@color/black"
-            android:textSize="22sp"
-            app:backgroundTint="@null"
-            app:shapeAppearanceOverlay="@style/RoundButton" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:fontFamily="@font/fira_sans_extra_condensed_medium"
-            android:text="2"
-            android:textColor="@color/black"
-            android:textSize="26sp" />
-
-        <com.google.android.material.button.MaterialButton
-            style="@style/Widget.Design.FloatingActionButton"
-            android:layout_width="@dimen/portion_btn_size"
-            android:layout_height="@dimen/portion_btn_size"
-            android:layout_marginLeft="10dp"
-            android:background="@drawable/circle_with_brown_stroke"
-            android:insetLeft="0dp"
-            android:insetTop="0dp"
-            android:insetRight="0dp"
-            android:insetBottom="0dp"
-            android:padding="0dp"
-            android:text="+"
-            android:textColor="@color/black"
-            android:textSize="22sp"
-            app:backgroundTint="@null"
-            app:shapeAppearanceOverlay="@style/RoundButton" />
-
-    </LinearLayout>
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/ingredientsRecyclerView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/recipePortionsBlock"
-        android:layout_marginTop="15dp"
-        android:nestedScrollingEnabled="false"
-        tools:itemCount="3"
-        tools:listitem="@layout/item_ingredient" />
-
-    <TextView
-        android:id="@+id/stepByStepRecipeTV"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/ingredientsRecyclerView"
-        android:layout_marginTop="15dp"
-        android:fontFamily="@font/fira_sans_extra_condensed_regular"
-        android:text="@string/step_by_step_photo_recipe"
-        android:textColor="@color/black"
-        android:textSize="18sp" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/stepsRecyclerView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/stepByStepRecipeTV"
-        android:layout_marginTop="15dp"
-        android:nestedScrollingEnabled="false"
-        tools:itemCount="2"
-        tools:listitem="@layout/item_step" />
-
-    <LinearLayout
-        android:id="@+id/ratingBlock"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/stepsRecyclerView"
-        android:layout_marginTop="15dp"
-        android:background="@drawable/rating_block_border"
-        android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/likeRecipeTV"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="@dimen/rating_block_vertical_margin"
-            android:fontFamily="@font/fira_sans_extra_condensed_medium"
-            android:text="@string/did_you_like_recipe"
-            android:textAlignment="center"
-            android:textColor="@color/black"
-            android:textSize="20dp" />
-
-        <Button
-            android:id="@id/toFavouriteBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="@dimen/rating_block_vertical_margin"
-            android:background="@drawable/favourite_btn_bg"
-            android:fontFamily="@font/fira_sans_extra_condensed_regular"
-            android:insetTop="0dp"
-            android:insetBottom="0dp"
-            android:minHeight="0dp"
-            android:text="@string/to_favourite"
-            android:textColor="@color/black"
-            android:textSize="16dp"
-            app:backgroundTint="@null" />
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginLeft="12dp"
-            android:layout_marginTop="@dimen/rating_block_vertical_margin"
-            android:layout_marginBottom="15dp">
-
-
-            <RatingBar
-                style="@style/CustomRatingBar"
-                android:layout_width="wrap_content"
-                android:layout_height="30dp"
-                android:numStars="5"
-                android:stepSize="1" />
-
-            <View
-                android:layout_width="1dp"
-                android:layout_height="match_parent"
-                android:layout_marginVertical="10dp"
-                android:background="@color/black" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:fontFamily="@font/fira_sans_extra_condensed_light"
-                android:text="5 (3)"
+                android:text="Мусс с семенами чиа"
                 android:textAlignment="center"
                 android:textColor="@color/black"
                 android:textSize="24sp" />
-        </LinearLayout>
+
+            <RelativeLayout
+                android:id="@+id/recipeInfoBlock"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/recipeTitleTV"
+                android:layout_marginTop="10dp">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp">
+
+                    <LinearLayout
+                        android:id="@+id/readyTimeBlock"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/icon_ready_time" />
+
+                        <TextView
+                            android:id="@+id/readyTimeTV"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/recipe_item_icon_margin_horizontal"
+                            android:fontFamily="@font/fira_sans_extra_condensed_light"
+                            android:text="6 ч 15 мин"
+                            android:textSize="@dimen/recipe_item_description_text_size" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/cookingTimeBlock"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/readyTimeBlock"
+                        android:layout_marginTop="@dimen/recipe_item_description_margin_vertical">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/icon_cooking_time" />
+
+                        <TextView
+                            android:id="@+id/cookingTimeTV"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/recipe_item_icon_margin_horizontal"
+                            android:fontFamily="@font/fira_sans_extra_condensed_light"
+                            android:text="120,43 кКал"
+                            android:textSize="@dimen/recipe_item_description_text_size" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/complexityBlock"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/cookingTimeBlock"
+                        android:layout_marginTop="@dimen/recipe_item_description_margin_vertical">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/icon_complexity" />
+
+                        <TextView
+                            android:id="@+id/complexityTV"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/recipe_item_icon_margin_horizontal"
+                            android:fontFamily="@font/fira_sans_extra_condensed_light"
+                            android:text="Просто"
+                            android:textSize="@dimen/recipe_item_description_text_size" />
+                    </LinearLayout>
+                </RelativeLayout>
+                -
+
+                <Button
+                    android:id="@+id/toFavouriteBtn"
+                    style="@style/OutlinedButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:text="@string/to_favourite" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/toFavouriteBtn"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="10dp"
+                    android:baselineAligned="true"
+                    android:orientation="horizontal">
+
+                    <ImageButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@color/white"
+                        android:src="@drawable/icon_star_no_padding" />
+
+                    <TextView
+                        android:id="@+id/avgMarkTV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="4dp"
+                        android:fontFamily="@font/fira_sans_extra_condensed_bold"
+                        android:text="5.0"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/marksNumTV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:fontFamily="@font/fira_sans_extra_condensed_light"
+                        android:gravity="center"
+                        android:text="20"
+                        android:textSize="18sp" />
+
+                    <ImageButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="6dp"
+                        android:background="@color/white"
+                        android:src="@drawable/icon_comment" />
+
+                    <TextView
+                        android:id="@+id/commentsNumTV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="4dp"
+                        android:fontFamily="@font/fira_sans_extra_condensed_light"
+                        android:gravity="center"
+                        android:text="(20)"
+                        android:textSize="18sp" />
+                </LinearLayout>
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/recipeDescriptionTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/recipeInfoBlock"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/fira_sans_extra_condensed_light"
+                android:gravity=""
+                android:justificationMode="inter_word"
+                android:text="Мусс с семенами чиа — легкий и полезный десерт со свежими ягодами. Семена чиа нормализуют вес, помогают при диабете и болезнях сердца. В них много витаминов, минералов и других полезных веществ. Ягоды могут быть любые, например, малина, клубника или голубика."
+                android:textColor="@color/black"
+                android:textSize="18sp" />
+
+            <LinearLayout
+                android:id="@+id/recipeAuthorBlock"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/recipeDescriptionTV"
+                android:layout_marginTop="5dp"
+                android:gravity="center">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/recipeAuthorPhotoShapeableImageView"
+                    android:layout_width="@dimen/user_photo_size"
+                    android:layout_height="@dimen/user_photo_size"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/user_placeholder"
+                    app:shapeAppearanceOverlay="@style/RoundShape" />
+
+                <TextView
+                    android:id="@+id/recipeAuthorNameTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:fontFamily="@font/fira_sans_extra_condensed_medium"
+                    android:text="Галина Белая"
+                    android:textColor="@color/black"
+                    android:textSize="18sp" />
+            </LinearLayout>
+
+
+            <GridLayout
+                android:id="@+id/nutritionalValueBlock"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/recipeAuthorBlock"
+                android:layout_marginHorizontal="25dp"
+                android:layout_marginTop="15dp"
+                android:columnCount="3"
+                android:useDefaultMargins="true">
+
+                <LinearLayout
+                    android:layout_columnWeight="1"
+                    android:background="@drawable/nutritional_value_border_bg"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/caloriesTV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/fira_sans_extra_condensed_regular"
+                        android:text="@string/calories"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/nutritional_value_title_text_size" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/nutritional_value_margin_horizontal"
+                        android:layout_marginBottom="@dimen/nutritional_value_margin_bottom"
+                        android:background="@drawable/nutritional_value_bg"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/caloriesValueTV"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/fira_sans_extra_condensed_medium"
+                            android:text="120.43"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/nutritional_value_value_text_size" />
+
+                        <TextView
+                            android:id="@+id/caloriesUnitTV"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/fira_sans_extra_condensed_light"
+                            android:text="@string/ccal"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/nutritional_value_measure_unit_text_size" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <Space android:layout_width="@dimen/nutritional_value_horizontal_gap" />
+
+                <LinearLayout
+                    android:layout_columnWeight="1"
+                    android:background="@drawable/nutritional_value_border_bg"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/proteinsTV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/fira_sans_extra_condensed_regular"
+                        android:text="@string/proteins"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/nutritional_value_title_text_size" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/nutritional_value_margin_horizontal"
+                        android:layout_marginBottom="@dimen/nutritional_value_margin_bottom"
+                        android:background="@drawable/nutritional_value_bg"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/proteinsValueTV"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/fira_sans_extra_condensed_medium"
+                            android:text="3.73"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/nutritional_value_value_text_size" />
+
+                        <TextView
+                            android:id="@+id/proteinsUnitTV"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/fira_sans_extra_condensed_light"
+                            android:text="@string/gram"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/nutritional_value_measure_unit_text_size" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <Space
+                    android:layout_height="@dimen/nutritional_value_vertical_gap"
+                    android:layout_columnSpan="3" />
+
+                <LinearLayout
+                    android:layout_columnWeight="1"
+                    android:background="@drawable/nutritional_value_border_bg"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/fatsTV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/fira_sans_extra_condensed_regular"
+                        android:text="@string/fats"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/nutritional_value_title_text_size" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/nutritional_value_margin_horizontal"
+                        android:layout_marginBottom="@dimen/nutritional_value_margin_bottom"
+                        android:background="@drawable/nutritional_value_bg"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/fatsValueTV"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/fira_sans_extra_condensed_medium"
+                            android:text="120.43"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/nutritional_value_value_text_size" />
+
+                        <TextView
+                            android:id="@+id/fatsUnitTV"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/fira_sans_extra_condensed_light"
+                            android:text="@string/gram"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/nutritional_value_measure_unit_text_size" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <Space android:layout_width="@dimen/nutritional_value_horizontal_gap" />
+
+                <LinearLayout
+                    android:layout_columnWeight="1"
+                    android:background="@drawable/nutritional_value_border_bg"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/carbohydratesTV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/fira_sans_extra_condensed_regular"
+                        android:text="@string/carbohydrates"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/nutritional_value_title_text_size" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/nutritional_value_margin_horizontal"
+                        android:layout_marginBottom="@dimen/nutritional_value_margin_bottom"
+                        android:background="@drawable/nutritional_value_bg"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/carbohydratesValueTV"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/fira_sans_extra_condensed_medium"
+                            android:text="120.43"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/nutritional_value_value_text_size" />
+
+                        <TextView
+                            android:id="@+id/carbohydratesUnitTV"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/fira_sans_extra_condensed_light"
+                            android:text="@string/gram"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/nutritional_value_measure_unit_text_size" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+            </GridLayout>
+
+            <TextView
+                android:id="@+id/recipeIngredientsTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/nutritionalValueBlock"
+                android:layout_marginTop="15dp"
+                android:fontFamily="@font/fira_sans_extra_condensed_regular"
+                android:text="@string/ingredients"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
+
+            <!--
+            <LinearLayout
+                android:id="@+id/recipePortionsBlock"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/recipeIngredientsTV"
+                android:layout_marginTop="10dp"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/portionsIngredientsTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/fira_sans_extra_condensed_regular"
+                    android:text="@string/portions"
+                    android:textColor="@color/black"
+                    android:textSize="18sp" />
+
+                <com.google.android.material.button.MaterialButton
+                    style="@style/Widget.Design.FloatingActionButton"
+                    android:layout_width="@dimen/portion_btn_size"
+                    android:layout_height="@dimen/portion_btn_size"
+                    android:layout_marginLeft="36dp"
+                    android:background="@drawable/circle_with_brown_stroke"
+                    android:insetLeft="0dp"
+                    android:insetTop="0dp"
+                    android:insetRight="0dp"
+                    android:insetBottom="0dp"
+                    android:padding="0dp"
+                    android:text="-"
+                    android:textColor="@color/black"
+                    android:textSize="22sp"
+                    app:backgroundTint="@null"
+                    app:shapeAppearanceOverlay="@style/RoundButton" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:fontFamily="@font/fira_sans_extra_condensed_medium"
+                    android:text="2"
+                    android:textColor="@color/black"
+                    android:textSize="26sp" />
+
+                <com.google.android.material.button.MaterialButton
+                    style="@style/Widget.Design.FloatingActionButton"
+                    android:layout_width="@dimen/portion_btn_size"
+                    android:layout_height="@dimen/portion_btn_size"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/circle_with_brown_stroke"
+                    android:insetLeft="0dp"
+                    android:insetTop="0dp"
+                    android:insetRight="0dp"
+                    android:insetBottom="0dp"
+                    android:padding="0dp"
+                    android:text="+"
+                    android:textColor="@color/black"
+                    android:textSize="22sp"
+                    app:backgroundTint="@null"
+                    app:shapeAppearanceOverlay="@style/RoundButton" />
+
+            </LinearLayout>-->
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/ingredientsRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/recipeIngredientsTV"
+                android:layout_marginTop="15dp"
+                android:nestedScrollingEnabled="false"
+                tools:itemCount="3"
+                tools:listitem="@layout/item_ingredient" />
+
+            <TextView
+                android:id="@+id/stepByStepRecipeTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/ingredientsRecyclerView"
+                android:layout_marginTop="15dp"
+                android:fontFamily="@font/fira_sans_extra_condensed_regular"
+                android:text="@string/step_by_step_photo_recipe"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/stepsRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/stepByStepRecipeTV"
+                android:layout_marginTop="15dp"
+                android:nestedScrollingEnabled="false"
+                tools:itemCount="2"
+                tools:listitem="@layout/item_step" />
+
+            <LinearLayout
+                android:id="@+id/ratingBlock"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/stepsRecyclerView"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/rating_block_border"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/likeRecipeTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/rating_block_vertical_margin"
+                    android:fontFamily="@font/fira_sans_extra_condensed_medium"
+                    android:text="@string/did_you_like_recipe"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="20dp" />
+
+                <Button
+                    android:id="@id/toFavouriteBtn"
+                    style="@style/OutlinedButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/rating_block_vertical_margin"
+                    android:text="@string/to_favourite" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginTop="@dimen/rating_block_vertical_margin"
+                    android:layout_marginBottom="15dp">
+
+
+                    <RatingBar
+                        android:id="@+id/ratingBar"
+                        style="@style/CustomRatingBar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:numStars="5"
+                        android:stepSize="1" />
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginVertical="10dp"
+                        android:background="@color/black" />
+
+                    <TextView
+                        android:id="@+id/ratingsTV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:fontFamily="@font/fira_sans_extra_condensed_light"
+                        android:text="5 (3)"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:textSize="24sp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/commentsTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/ratingBlock"
+                android:layout_marginTop="15dp"
+                android:fontFamily="@font/fira_sans_extra_condensed_regular"
+                android:text="@string/comments"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
+
+            <LinearLayout
+                android:id="@+id/enterCommentBlock"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/commentsTV"
+                android:layout_marginTop="15dp"
+                android:gravity="center">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/newCommentAuthorPhotoShapeableImageView"
+                    android:layout_width="@dimen/user_photo_size"
+                    android:layout_height="@dimen/user_photo_size"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/image_example"
+                    app:shapeAppearanceOverlay="@style/RoundShape" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:fontFamily="@font/fira_sans_extra_condensed_light"
+                    android:hint="@string/enter_comment"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/black"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/commentsRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/enterCommentBlock"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="15dp"
+                android:nestedScrollingEnabled="false"
+                tools:itemCount="3"
+                tools:listitem="@layout/item_comment" />
+        </RelativeLayout>
     </LinearLayout>
-
-    <TextView
-        android:id="@+id/commentsTV"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/ratingBlock"
-        android:layout_marginTop="15dp"
-        android:fontFamily="@font/fira_sans_extra_condensed_regular"
-        android:text="@string/comments"
-        android:textColor="@color/black"
-        android:textSize="18sp" />
-
-    <LinearLayout
-        android:id="@+id/enterCommentBlock"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/commentsTV"
-        android:layout_marginTop="15dp"
-        android:gravity="center">
-
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/newCommentAuthorPhotoShapeableImageView"
-            android:layout_width="@dimen/user_photo_size"
-            android:layout_height="@dimen/user_photo_size"
-            android:scaleType="fitXY"
-            android:src="@drawable/image_example"
-            app:shapeAppearanceOverlay="@style/RoundShape" />
-
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:fontFamily="@font/fira_sans_extra_condensed_light"
-            android:hint="@string/enter_comment"
-            android:textColor="@color/black"
-            android:textColorHint="@color/black"
-            android:textSize="14sp" />
-    </LinearLayout>
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/commentsRecyclerView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/enterCommentBlock"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="15dp"
-        android:nestedScrollingEnabled="false"
-        tools:itemCount="3"
-        tools:listitem="@layout/item_comment" />
-</RelativeLayout>
-
+</ScrollView>

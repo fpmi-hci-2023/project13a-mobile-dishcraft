@@ -8,8 +8,10 @@ import android.view.LayoutInflater
 import android.view.Menu
 import android.view.View
 import android.view.ViewGroup
+import android.widget.SearchView.OnQueryTextListener
 import androidx.core.view.GravityCompat
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
@@ -17,10 +19,13 @@ import com.google.android.material.navigation.NavigationView
 import com.shinkevich.dishcraft.R
 import com.shinkevich.dishcraft.databinding.DrawerHeaderBinding
 import com.shinkevich.dishcraft.databinding.FragmentSideMenuOptionsBinding
+import com.shinkevich.dishcraft.viewmodel.RecipeListViewModel
 
 class SideMenuOptionsFragment : Fragment() {
     private lateinit var binding: FragmentSideMenuOptionsBinding
     private lateinit var navController: NavController
+
+    private val viewModel by viewModels<RecipeListViewModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -49,6 +54,16 @@ class SideMenuOptionsFragment : Fragment() {
                 val action = SideMenuOptionsFragmentDirections.actionSideMenuFragmentToFiltersFragment()
                 findNavController().navigate(action)
             }
+
+            searchView.setOnQueryTextListener(object : OnQueryTextListener{
+                override fun onQueryTextSubmit(searchQuery: String?): Boolean {
+                    return false
+                }
+
+                override fun onQueryTextChange(p0: String?): Boolean {
+                    return false
+                }
+            })
         }
     }
 

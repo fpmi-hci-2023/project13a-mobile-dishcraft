@@ -5,22 +5,32 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.shinkevich.dishcraft.R
+import com.shinkevich.dishcraft.data.entity.Product
+import com.shinkevich.dishcraft.databinding.ItemIngredientBinding
+import com.shinkevich.dishcraft.databinding.ItemRecipeBinding
+import com.shinkevich.dishcraft.view.entity.RecipePreview
 
-class IngredientsAdapter (var ingredients  : List<String>): RecyclerView.Adapter<IngredientsAdapter.IngredientsViewHolder>() {
+class IngredientsAdapter (private var ingredients  : List<Product>): RecyclerView.Adapter<IngredientsAdapter.IngredientsViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): IngredientsViewHolder {
-        val itemView = LayoutInflater.from(parent.context)
-            .inflate(R.layout.item_ingredient, parent, false)
-        return IngredientsAdapter.IngredientsViewHolder(itemView)
+        val binding = ItemIngredientBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return IngredientsViewHolder(binding)
     }
 
     override fun onBindViewHolder(holder: IngredientsViewHolder, position: Int) {
-
+        holder.bind(ingredients[position])
     }
 
     override fun getItemCount(): Int {
         return ingredients.size
     }
 
-    class IngredientsViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    class IngredientsViewHolder(private val itemBinding: ItemIngredientBinding) :
+        RecyclerView.ViewHolder(itemBinding.root) {
+        fun bind(product: Product) {
+            itemBinding.productNameTV.text = product.productName
+            if(product.image!=null){
+                itemBinding.productImage.setImageBitmap(product.image)
+            }
+        }
     }
 }

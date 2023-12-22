@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@color/dark_gray"
-    android:paddingHorizontal="15dp">
+    android:paddingHorizontal="20dp">
 
     <TextView
         android:id="@+id/appTitleTV"
@@ -14,60 +14,73 @@
         android:text="@string/app_name"
         android:textAlignment="center"
         android:textColor="@color/beige"
-        android:textSize="25sp" />
+        android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/authErrorTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/appTitleTV"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="@font/fira_sans_extra_condensed_bold"
+        android:text="@string/signin_error"
+        android:textAlignment="center"
+        android:textColor="@color/pink"
+        android:textSize="20sp"
+        android:visibility="gone"/>
 
     <TextView
         android:id="@+id/loginUserNameTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/appTitleTV"
+        android:layout_below="@id/authErrorTV"
         android:layout_marginTop="35dp"
         android:fontFamily="@font/fira_sans_extra_condensed_regular"
-        android:text="@string/user_name"
+        android:text="@string/email"
         android:textColor="@color/white"
-        android:textSize="18sp" />
+        android:textSize="20sp" />
 
     <EditText
-        android:id="@+id/loginUserNameEditText"
+        android:id="@+id/userNameEditText"
         android:layout_width="match_parent"
         android:layout_height="@dimen/login_input_height"
         android:layout_below="@id/loginUserNameTV"
-        android:background="@drawable/login_input_background" />
+        android:background="@drawable/login_input_background"
+        android:paddingHorizontal="@dimen/edit_text_padding"
+        android:textSize="20sp" />
 
     <TextView
         android:id="@+id/loginPasswordTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/loginUserNameEditText"
+        android:layout_below="@id/userNameEditText"
         android:layout_marginTop="15dp"
         android:fontFamily="@font/fira_sans_extra_condensed_regular"
         android:text="@string/password"
         android:textColor="@color/white"
-        android:textSize="18sp" />
+        android:textSize="20sp" />
 
     <EditText
-        android:id="@+id/loginPasswordEditText"
+        android:id="@+id/passwordEditText"
         android:layout_width="match_parent"
         android:layout_height="@dimen/login_input_height"
         android:layout_below="@id/loginPasswordTV"
-        android:background="@drawable/login_input_background" />
+        android:background="@drawable/login_input_background"
+        android:inputType="textPassword"
+        android:paddingHorizontal="@dimen/edit_text_padding"
+        android:textSize="20sp" />
 
     <Button
         android:id="@+id/loginLoginBtn"
+        style="@style/FilledButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/loginPasswordEditText"
+        android:layout_below="@id/passwordEditText"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="30dp"
-        android:background="@drawable/active_login_button_bg"
-        android:fontFamily="@font/fira_sans_extra_condensed_regular"
-        android:insetTop="0dp"
-        android:insetBottom="0dp"
-        android:minHeight="0dp"
         android:paddingHorizontal="50dp"
-        android:text="@string/login"
-        android:textSize="18sp"
-        />
+        android:textSize="20sp"
+        android:text="@string/login" />
 
     <Button
         android:id="@+id/loginRegistrationBtn"
@@ -76,10 +89,10 @@
         android:layout_below="@id/loginLoginBtn"
         android:layout_centerHorizontal="true"
         android:backgroundTint="@color/dark_gray"
-        android:text="@string/sign_up"
         android:fontFamily="@font/fira_sans_extra_condensed_regular"
-        android:textSize="18sp"
-        android:paddingHorizontal="0dp"/>
+        android:paddingHorizontal="0dp"
+        android:text="@string/sign_up"
+        android:textSize="20sp" />
 
 
 </RelativeLayout>

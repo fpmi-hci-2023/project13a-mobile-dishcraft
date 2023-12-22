@@ -6,9 +6,7 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="false">
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+
 
 
         <RelativeLayout
@@ -37,7 +35,8 @@
                         android:iconifiedByDefault="false"
                         android:queryHint="@string/search_hint"
                         android:searchIcon="@drawable/icon_search"
-                        android:theme="@style/SearchViewStyle" />
+                        android:theme="@style/SearchViewStyle"
+                        android:textSize="18sp"/>
 
                     <ImageButton
                         android:id="@+id/filterImgBtn"
@@ -59,7 +58,6 @@
                 app:defaultNavHost="true"
                 app:navGraph="@navigation/side_menu_nav_graph" />
         </RelativeLayout>
-    </ScrollView>
 
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/navView"

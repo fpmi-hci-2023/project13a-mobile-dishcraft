@@ -45,17 +45,12 @@
 
     <Button
         android:id="@+id/createRecipeBtn"
+        style="@style/FilledButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/menuAuthorBlock"
         android:layout_marginTop="20dp"
-        android:background="@drawable/active_login_button_bg"
         android:text="@string/create_recipe"
-        android:fontFamily="@font/fira_sans_extra_condensed_regular"
-        android:textSize="18sp"
-        android:insetTop="0dp"
-        android:insetBottom="0dp"
-        android:minHeight="0dp"
         android:layout_centerHorizontal="true"
         />
 

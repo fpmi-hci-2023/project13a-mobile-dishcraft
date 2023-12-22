@@ -18,7 +18,9 @@
     <string name="add_product">Добавить продукт</string>
     <string name="enter_product_title">Введите название продукта</string>
     <string name="user_name">Имя пользователя</string>
+    <string name="email">Адрес эл. почты</string>
     <string name="password">Пароль</string>
+    <string name="signin_error">Неверный логин или пароль</string>
     <string name="confirm_password">Подтвердите пароль</string>
     <string name="login">Войти</string>
     <string name="sign_up">Зарегистрироваться</string>
@@ -58,6 +60,8 @@
     <string name="glass">стакан</string>
     <string name="describe_steps">Опишите по шагам создание блюда</string>
     <string name="enter_description">Введите описание</string>
+    <string name="h">ч.</string>
+    <string name="min">мин.</string>
 
     <string-array name="measure_units">
         <item>ст.л.</item>

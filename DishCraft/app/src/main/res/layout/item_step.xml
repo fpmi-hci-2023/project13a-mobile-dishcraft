@@ -14,7 +14,7 @@
             android:layout_height="match_parent"
             android:adjustViewBounds="true"
             android:scaleType="fitXY"
-            android:src="@drawable/image_example" />
+            android:src="@drawable/dish_photo_placeholder" />
     </androidx.cardview.widget.CardView>
 
     <TextView
