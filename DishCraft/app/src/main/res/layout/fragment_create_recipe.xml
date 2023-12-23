@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:orientation="vertical"
+        android:paddingHorizontal="15dp"
+        android:paddingBottom="20dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="15dp"
+            android:fontFamily="@font/fira_sans_extra_condensed_medium"
+            android:text="@string/create_new_recipe"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:layout_width="@dimen/recipe_creation_step_num_size"
+                android:layout_height="@dimen/recipe_creation_step_num_size"
+                android:background="@drawable/circle_with_brown_stroke"
+                android:fontFamily="@font/fira_sans_extra_condensed_regular"
+                android:gravity="center"
+                android:text="1"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:fontFamily="@font/fira_sans_extra_condensed_regular"
+                android:text="@string/fill_in_main_info"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/fira_sans_extra_condensed_light"
+            android:text="@string/dish_name"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/form_input_height"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/form_input_bg" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:fontFamily="@font/fira_sans_extra_condensed_light"
+            android:text="@string/description"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/form_input_bg" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:fontFamily="@font/fira_sans_extra_condensed_light"
+            android:text="@string/time_in_kitchen"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+
+        <EditText
+            android:layout_width="@dimen/form_small_input_width"
+            android:layout_height="@dimen/form_input_height"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/form_input_bg" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_marginTop="15dp"
+            android:fontFamily="@font/fira_sans_extra_condensed_light"
+            android:text="@string/read_in"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+
+        <EditText
+            android:layout_width="@dimen/form_small_input_width"
+            android:layout_height="@dimen/form_input_height"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/form_input_bg" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:layout_width="@dimen/recipe_creation_step_num_size"
+                android:layout_height="@dimen/recipe_creation_step_num_size"
+                android:background="@drawable/circle_with_brown_stroke"
+                android:fontFamily="@font/fira_sans_extra_condensed_regular"
+                android:gravity="center"
+                android:text="2"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:fontFamily="@font/fira_sans_extra_condensed_regular"
+                android:text="@string/load_main_photo"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
+
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:adjustViewBounds="true"
+            android:src="@drawable/dish_photo_placeholder" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:layout_width="@dimen/recipe_creation_step_num_size"
+                android:layout_height="@dimen/recipe_creation_step_num_size"
+                android:background="@drawable/circle_with_brown_stroke"
+                android:fontFamily="@font/fira_sans_extra_condensed_regular"
+                android:gravity="center"
+                android:text="3"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:fontFamily="@font/fira_sans_extra_condensed_regular"
+                android:text="@string/add_ingredients"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_marginTop="15dp"
+            android:fontFamily="@font/fira_sans_extra_condensed_light"
+            android:text="@string/how_many_portions"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+
+        <EditText
+            android:layout_width="@dimen/form_small_input_width"
+            android:layout_height="@dimen/form_input_height"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/form_input_bg"
+            android:inputType="number" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/ingredientsRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:nestedScrollingEnabled="false"
+            tools:itemCount="2"
+            tools:listitem="@layout/item_ingredient_add" />
+
+        <AutoCompleteTextView
+            android:id="@+id/productsSearchTV"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_below="@id/productsRecyclerView"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/product_search_bg"
+            android:completionThreshold="1"
+            android:fontFamily="@font/fira_sans_extra_condensed_light"
+            android:hint="@string/enter_product_title"
+            android:paddingStart="15dp"
+            android:popupBackground="@drawable/products_search_hints_bg"
+            android:textSize="16sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:layout_width="@dimen/recipe_creation_step_num_size"
+                android:layout_height="@dimen/recipe_creation_step_num_size"
+                android:background="@drawable/circle_with_brown_stroke"
+                android:fontFamily="@font/fira_sans_extra_condensed_regular"
+                android:gravity="center"
+                android:text="4"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:fontFamily="@font/fira_sans_extra_condensed_regular"
+                android:text="@string/describe_steps"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/stepsRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:nestedScrollingEnabled="false"
+            tools:itemCount="1"
+            tools:listitem="@layout/item_step_add" />
+
+        <Button
+            android:id="@+id/addStepBtn"
+            style="?attr/materialIconButtonFilledStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="15dp"
+            app:icon="@drawable/icon_plus"
+            app:iconTint="@color/white" />
+
+        <Button
+            android:id="@+id/searchBtn"
+            style="@style/FilledButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="15dp"
+            android:text="@string/create_recipe" />
+
+    </LinearLayout>
+</ScrollView>

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/recipesTV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/content_gap_vertical"
+            android:fontFamily="@font/fira_sans_extra_condensed_medium"
+            android:text="@string/recipes"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="24sp" />
+
+        <androidx.constraintlayout.helper.widget.Carousel
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+
+        <com.google.android.material.button.MaterialButtonToggleGroup
+            android:id="@+id/popularNewSwitch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/recipesTV"
+            android:layout_centerHorizontal="true"
+            app:checkedButton="@id/newBtn"
+            app:selectionRequired="true"
+            app:singleSelection="true"
+            app:strokeColor="@color/green">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/newBtn"
+                style="@style/ToggleButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minWidth="@dimen/switch_btn_width"
+                android:text="@string/new_str"
+                app:strokeColor="@color/green"
+                app:strokeWidth="2dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/popularBtn"
+                style="@style/ToggleButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minWidth="@dimen/switch_btn_width"
+                android:text="@string/popular"
+                app:strokeColor="@color/green"
+                app:strokeWidth="2dp" />
+
+        </com.google.android.material.button.MaterialButtonToggleGroup>
+
+        <ProgressBar
+            android:id="@+id/loadingProgressBar"
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:progressDrawable="@drawable/circular_progress_bar"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:layout_below="@id/popularNewSwitch"
+            android:visibility="gone"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recipeListRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/loadingProgressBar"
+            android:layout_marginHorizontal="@dimen/content_margin_horizontal"
+            android:layout_marginTop="@dimen/content_gap_vertical"
+            android:nestedScrollingEnabled="false"
+            tools:listitem="@layout/item_recipe" />
+
+    </RelativeLayout>
+</ScrollView>

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginTop="20dp"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal">
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:src="@drawable/example_image2"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxWidth="80dp"
+            android:text="Голубика"
+            android:textAlignment="center"
+            android:fontFamily="@font/fira_sans_extra_condensed_regular"
+            android:textSize="16sp"
+            android:textColor="@color/black"/>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@id/deleteBtn"
+        android:layout_centerVertical="true">
+        <LinearLayout
+            android:id="@+id/ingredientInGramsBlock"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:gravity="center_vertical">
+
+            <EditText
+                android:layout_width="@dimen/small_input_width"
+                android:layout_height="@dimen/form_input_height"
+                android:background="@drawable/form_input_bg"
+                android:inputType="number"/>
+
+            <TextView
+                android:layout_width="@dimen/grams_txt_width"
+                android:layout_height="wrap_content"
+                android:text="@string/gram"
+                android:fontFamily="@font/fira_sans_extra_condensed_light"
+                android:textSize="16sp"
+                android:textColor="@color/black"
+                android:layout_marginLeft="15dp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignLeft="@id/ingredientInGramsBlock"
+            android:gravity="center_vertical"
+            android:layout_below="@id/ingredientInGramsBlock"
+            android:layout_marginTop="25dp">
+
+            <EditText
+                android:layout_width="@dimen/small_input_width"
+                android:layout_height="@dimen/form_input_height"
+                android:background="@drawable/form_input_bg"
+                android:inputType="number"/>
+
+            <Spinner
+                android:id="@+id/measureUnitSpinner"
+                android:layout_width="@dimen/grams_txt_width"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:entries="@array/measure_units"
+                />
+        </LinearLayout>
+    </RelativeLayout>
+
+
+    <Button
+        android:id="@+id/deleteBtn"
+        style="?attr/materialIconButtonStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:icon="@drawable/icon_delete"
+        app:iconTint="@color/dark_gray"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"/>
+
+</RelativeLayout>

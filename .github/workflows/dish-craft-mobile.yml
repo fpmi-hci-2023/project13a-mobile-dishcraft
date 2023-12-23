@@ -1,0 +1,51 @@
+name: Android_unit_tests_and_build_artifacts
+
+on: 
+  push: 
+    branches: [ main, development ] 
+  pull_request: 
+    branches: [ main, development ]
+
+env:
+  KEY_STORE_PASSWORD: ${{ secrets.KEY_STORE_PASSWORD }}
+  RELEASE_SIGN_KEY_ALIAS: ${{ secrets.RELEASE_SIGN_KEY_ALIAS }}
+  RELEASE_SIGN_KEY_PASSWORD: ${{ secrets.RELEASE_SIGN_KEY_PASSWORD }}
+
+jobs:
+ unit_tests_build_apk_aab:
+   name: Build release artifacts
+   runs-on: ubuntu-latest
+   steps:
+     - uses: actions/checkout@v2
+     - uses: actions/setup-java@v1
+       with: {java-version: 11}
+
+     - name: Checkout keystore repo
+       uses: actions/checkout@v2
+       with:
+         repository: ${{ secrets.KEY_STORE_GIT_REPOSITORY }}
+         token: ${{ secrets.KEY_STORE_ACCESS_TOKEN }}
+         path: ./DishCraft/app/keystore
+       
+     - name: Change wrapper permissions
+       working-directory: ./DishCraft
+       run: chmod +x ./gradlew
+       
+     - name: Build release APK and AAB after test
+       working-directory: ./DishCraft
+       run: |
+         ./gradlew test
+         ./gradlew assembleRelease
+         ./gradlew bundleRelease
+         
+     - name: Upload APK
+       uses: actions/upload-artifact@v2
+       with:
+         name: app-release.apk
+         path: ./DishCraft/app/build/outputs/apk/release/app-release.apk
+         
+     - name: Upload AAB Bundle
+       uses: actions/upload-artifact@v2
+       with:
+         name: app-release.aab
+         path: ./DishCraft/app/build/outputs/bundle/release/app-release.aab

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/recipeStepPhoto"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:adjustViewBounds="true"
+            android:scaleType="fitXY"
+            android:src="@drawable/dish_photo_placeholder" />
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/recipeStepNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:fontFamily="@font/fira_sans_extra_condensed_regular"
+        android:text="Шаг 1"
+        android:textColor="@color/black"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/recipeStepDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:fontFamily="@font/fira_sans_extra_condensed_light"
+        android:text="Отмерьте необходимое количество продуктов. Ягоды и листики мяты для подачи вымойте, обсушите на бумажных полотенцах, у клубники удалите чашелистики. Нарежьте клубнику кусочками произвольного размера. Приготовьте 2 стеклянные баночки с крышками."
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:justificationMode="inter_word"/>
+
+</LinearLayout>
