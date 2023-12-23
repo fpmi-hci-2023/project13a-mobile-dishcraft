@@ -57,7 +57,7 @@ class NetworkRecipeStorage @Inject constructor(private val api: RecipeApi) {
         return steps
     }
 
-    suspend fun getAvgRating(recipeId: Int): Double {
+    private suspend fun getAvgRating(recipeId: Int): Double {
         val avgRatingResponse = api.getAvgRating(recipeId)
         return avgRatingResponse.body()!!
     }
@@ -67,13 +67,14 @@ class NetworkRecipeStorage @Inject constructor(private val api: RecipeApi) {
         return ratingResponse.body()!!
     }
 
-    suspend fun getRecipeComments(recipeId: Int): List<Comment> {
+    private suspend fun getRecipeComments(recipeId: Int): List<Comment> {
         val commentResponse = api.getRecipeComments(recipeId)
         return commentResponse.body()!!
     }
 
     fun getRecipe(recipeId: Int): Flow<Recipe> {
         return flow {
+            println("--- before api")
             val recipeShort = getRecipeShort(recipeId)
             val nutritionalValue = getRecipeNutritionalValue(recipeId)
             val steps = getRecipeSteps(recipeId)
@@ -81,6 +82,7 @@ class NetworkRecipeStorage @Inject constructor(private val api: RecipeApi) {
             val avgRating = getAvgRating(recipeId)
             val ratings = getRecipeRatings(recipeId)
             val comments = getRecipeComments(recipeId)
+            println("--- after api")
             val recipe =
                 Recipe(recipeShort, nutritionalValue, steps, products, avgRating, ratings, comments)
             emit(recipe)
